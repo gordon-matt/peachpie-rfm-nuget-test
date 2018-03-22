@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.1" />
+    <PackageReference Include="Peachpie.Library" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.Graphics" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.MsSql" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.MySql" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.Network" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.PDO" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.Scripting" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.Library.XmlDom" Version="0.9.0-CI00869" />
+    <PackageReference Include="Peachpie.NETCore.Web" Version="0.9.0-CI00869" />
+    <PackageReference Include="ResponsiveFileManager" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Media\Thumbs\" />
+    <Folder Include="wwwroot\Media\Uploads\" />
+  </ItemGroup>
+
+</Project>
