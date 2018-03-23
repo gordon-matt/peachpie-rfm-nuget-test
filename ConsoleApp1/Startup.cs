@@ -20,8 +20,6 @@ namespace ConsoleApp1
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<ResponsiveFileManagerConfig>(Configuration.GetSection("ResponsiveFileManagerConfig"));
-
             // Adds a default in-memory implementation of IDistributedCache.
             services.AddDistributedMemoryCache();
             
@@ -36,8 +34,9 @@ namespace ConsoleApp1
         {
             app.UseSession();
 
-            var rfmOptions = app.ApplicationServices.GetRequiredService<IOptions<ResponsiveFileManagerConfig>>().Value;
-
+            var rfmOptions = new ResponsiveFileManagerConfig();
+            Configuration.GetSection("ResponsiveFileManagerConfig").Bind(rfmOptions);
+            
             app.UsePhp(new PhpRequestOptions(scriptAssemblyName: "ResponsiveFileManager")
             {
                 //RootPath = Path.GetDirectoryName(Directory.GetCurrentDirectory()) + "\\Website",
