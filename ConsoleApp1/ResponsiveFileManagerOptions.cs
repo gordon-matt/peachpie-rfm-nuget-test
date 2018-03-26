@@ -1,7 +1,7 @@
 ﻿namespace ConsoleApp1
 {
     // TODO: Add all options from config.php
-    public class ResponsiveFileManagerConfig
+    public class ResponsiveFileManagerOptions
     {
         /// <summary>
         /// Path from base_url to base of upload folder. Use start and final /

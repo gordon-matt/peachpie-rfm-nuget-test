@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Pchp.Core;
 using Peachpie.Web;
 
@@ -22,7 +20,7 @@ namespace ConsoleApp1
         {
             // Adds a default in-memory implementation of IDistributedCache.
             services.AddDistributedMemoryCache();
-            
+
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -34,9 +32,9 @@ namespace ConsoleApp1
         {
             app.UseSession();
 
-            var rfmOptions = new ResponsiveFileManagerConfig();
-            Configuration.GetSection("ResponsiveFileManagerConfig").Bind(rfmOptions);
-            
+            var rfmOptions = new ResponsiveFileManagerOptions();
+            Configuration.GetSection("ResponsiveFileManagerOptions").Bind(rfmOptions);
+
             app.UsePhp(new PhpRequestOptions(scriptAssemblyName: "ResponsiveFileManager")
             {
                 //RootPath = Path.GetDirectoryName(Directory.GetCurrentDirectory()) + "\\Website",
@@ -53,7 +51,7 @@ namespace ConsoleApp1
                     };
                 }
             });
-            
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
         }
