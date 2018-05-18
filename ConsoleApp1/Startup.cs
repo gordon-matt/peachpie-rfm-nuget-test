@@ -37,7 +37,7 @@ namespace ConsoleApp1
             var rfmOptions = new ResponsiveFileManagerOptions();
             Configuration.GetSection("ResponsiveFileManagerOptions").Bind(rfmOptions);
             
-            var root = Path.GetFullPath("wwwroot");
+            string root = Path.GetFullPath("wwwroot");
 
             app.UsePhp(new PhpRequestOptions(scriptAssemblyName: "ResponsiveFileManager")
             {

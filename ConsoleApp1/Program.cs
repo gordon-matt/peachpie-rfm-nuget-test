@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -9,11 +10,8 @@ namespace ConsoleApp1
     {
         private static void Main(string[] args)
         {
-            var dir = Directory.GetParent(Directory.GetCurrentDirectory());
-            dir = Directory.GetParent(dir.FullName);
-            dir = Directory.GetParent(dir.FullName);
-            string currentDirectory = dir.FullName;
-            var root = Path.GetDirectoryName(currentDirectory) + "\\ConsoleApp1\\wwwroot";
+            string currentDirectory = Path.GetFullPath(Path.GetRelativePath(Directory.GetCurrentDirectory(), "..\\.."));
+            var root = Path.Combine(currentDirectory, "wwwroot");
 
             var host = new WebHostBuilder()
                 .UseKestrel()
@@ -23,7 +21,7 @@ namespace ConsoleApp1
                 .UseStartup<Startup>()
                 .ConfigureAppConfiguration((builderContext, config) =>
                 {
-                    config.AddJsonFile(currentDirectory + "/appsettings.json", optional: false, reloadOnChange: true);
+                    config.AddJsonFile(Path.Combine(currentDirectory, "appsettings.json"), optional: false, reloadOnChange: true);
                 })
                 .Build();
 
