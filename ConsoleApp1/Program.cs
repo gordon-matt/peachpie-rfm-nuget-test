@@ -9,7 +9,10 @@ namespace ConsoleApp1
     {
         private static void Main(string[] args)
         {
-            var currentDirectory = Directory.GetCurrentDirectory();
+            var dir = Directory.GetParent(Directory.GetCurrentDirectory());
+            dir = Directory.GetParent(dir.FullName);
+            dir = Directory.GetParent(dir.FullName);
+            string currentDirectory = dir.FullName;
             var root = Path.GetDirectoryName(currentDirectory) + "\\ConsoleApp1\\wwwroot";
 
             var host = new WebHostBuilder()
